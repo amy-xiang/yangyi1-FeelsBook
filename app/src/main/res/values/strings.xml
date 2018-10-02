@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">yangyi1-FeelsBook</string>
-    <string name = "buttontext_joy">Joy</string>
-    <string name = "buttontext_love">Love</string>
-    <string name = "buttontext_suprise">Suprise</string>
-    <string name = "buttontext_anger">Anger</string>
-    <string name = "buttontext_sadness">Sadness</string>
-    <string name = "buttontext_fear">Fear</string>
-    <string name = "apptext_description">EMOTION TRACKER</string>
-    <string name = "buttontext_history">History</string>
+    <string name="buttontext_joy">Joy</string>
+    <string name="buttontext_love">Love</string>
+    <string name="buttontext_surprise">Surprise</string>
+    <string name="buttontext_anger">Anger</string>
+    <string name="buttontext_sadness">Sadness</string>
+    <string name="buttontext_fear">Fear</string>
+    <string name="apptext_description">EMOTION TRACKER</string>
+    <string name="buttontext_history">History</string>
+    <string name="comment_prompt">Comment on your feelings</string>
+    <string name="title_activity_history">History</string>
 </resources>
