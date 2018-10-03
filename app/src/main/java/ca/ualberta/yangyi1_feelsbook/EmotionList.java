@@ -19,6 +19,11 @@ public class EmotionList {
 
     }
 
+    public void deleteEmotion(Emotion emotion){
+        emotionList.remove(emotion);
+
+    }
+
 
 
 }
