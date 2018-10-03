@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 public class EmotionTest {
     @Test
     public void testEmotion(){
-        String EmotionType = "Happy";
+        String EmotionType = "Joy";
         Emotion emotion = new Emotion(EmotionType);
         assertTrue("EmotionType not Equal", EmotionType.equals(emotion.getEmotionType()));
     }
