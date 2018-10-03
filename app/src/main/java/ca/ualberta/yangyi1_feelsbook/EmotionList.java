@@ -24,6 +24,14 @@ public class EmotionList {
 
     }
 
+    public int size(){
+        return emotionList.size();
+    }
+
+    public boolean contains(Emotion emotion){
+        return emotionList.contains(emotion);
+    }
+
 
 
 }

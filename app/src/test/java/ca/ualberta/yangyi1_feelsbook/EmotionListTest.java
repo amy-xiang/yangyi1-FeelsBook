@@ -11,8 +11,7 @@ public class EmotionListTest {
 
     public void testEmotionList(){
         EmotionList emotionList = new EmotionList();
-        Collection<Emotion> emotions = emotionList.getEmotions();
-        assertTrue("Empty emotion list", emotions.size() == 0);
+        assertTrue("Empty emotion list", emotionList.size() == 0);
     }
 
 
@@ -21,9 +20,8 @@ public class EmotionListTest {
         String emotionType = "Joy";
         Emotion testEmotion = new Emotion(emotionType);
         emotionList.addEmotion(testEmotion);
-        Collection<Emotion> emotions = emotionList.getEmotions();
-        assertTrue("Emotion list size -- testing add emotion", emotions.size() == 1);
-        assertTrue("Test emotion not contained", emotions.contains(testEmotion));
+        assertTrue("Emotion list size -- testing add emotion", emotionList.size() == 1);
+        assertTrue("Test emotion not contained", emotionList.contains(testEmotion));
 
     }
     @Test
@@ -32,12 +30,12 @@ public class EmotionListTest {
         String emotionType = "Joy";
         Emotion testEmotion = new Emotion(emotionType);
         emotionList.addEmotion(testEmotion);
-        Collection<Emotion> emotions = emotionList.getEmotions();
-        assertTrue("Emotion list size -- too small", emotions.size() == 1);
-        assertTrue("Test emotion not contained", emotions.contains(testEmotion));
+        assertTrue("Emotion list size -- too small", emotionList.size() == 1);
+        assertTrue("Test emotion not contained", emotionList.contains(testEmotion));
         emotionList.deleteEmotion(testEmotion);
-        emotions = emotionList.getEmotions();
-        assertTrue("Emotion list size too large", emotions.size() == 0);
-        assertFalse("Test emotion still contained", emotions.contains(testEmotion));
+        assertTrue("Emotion list size too large", emotionList.size() == 0);
+        assertFalse("Test emotion still contained", emotionList.contains(testEmotion));
     }
+
+
 }
