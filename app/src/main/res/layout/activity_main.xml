@@ -136,6 +136,7 @@
         android:layout_width="240dp"
         android:layout_height="50dp"
         android:layout_marginBottom="101dp"
+        android:onClick="openHistory"
         android:text="@string/buttontext_history"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
