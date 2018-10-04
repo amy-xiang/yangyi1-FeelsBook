@@ -41,5 +41,9 @@ public class Emotion {
         return this.comment;
     }
 
+    public String toString(){
+        return getEmotionType();
+    }
+
 
 }
