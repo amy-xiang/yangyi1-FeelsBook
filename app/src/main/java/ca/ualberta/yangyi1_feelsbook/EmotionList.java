@@ -5,9 +5,12 @@ import java.util.Collection;
 
 public class EmotionList {
     protected ArrayList<Emotion> emotionList;
+    protected ArrayList<Listener> listeners;
 
     public EmotionList(){
         emotionList = new ArrayList<Emotion>();
+        listeners = new ArrayList<Listener>();
+
 
     }
     public Collection<Emotion> getEmotions(){
@@ -16,11 +19,28 @@ public class EmotionList {
 
     public void addEmotion(Emotion emotion){
         emotionList.add(emotion);
+        notifyListeners();
 
+    }
+
+    private void notifyListeners() {
+        for (Listener listener: listeners) {
+            listener.update();
+        }
+    }
+
+    public void addListener(Listener l){
+        listeners.add(l);
+
+    }
+
+    public void deleteListener(Listener l){
+        listeners.remove(l);
     }
 
     public void deleteEmotion(Emotion emotion){
         emotionList.remove(emotion);
+        notifyListeners();
 
     }
 
