@@ -1,31 +1,45 @@
 package ca.ualberta.yangyi1_feelsbook;
 
+import android.util.Log;
+
 import java.util.Date;
 
 public class Emotion {
     protected String EmotionType;
     protected Date date;
     protected String comment;
+    private static final Integer MAX_CHARS = 100;
 
-    public Emotion(String EmotionType, Date date, String comment){
-        this.EmotionType = EmotionType;
+
+    public void setEmotionType(String emotionType) {
+        this.EmotionType = emotionType;
+    }
+
+    public void setDate(Date date) {
         this.date = date;
-        this.comment = comment;
     }
 
-    public void setDate(Date date){
-        this.date = date;
-    }
-
-    public void setComment(String comment){
-        this.comment = comment;
-    }
-
-    public String getEmotionType(){
+    public String getEmotionType() {
         return this.EmotionType;
     }
 
-    public Date getDate(){
+    public Date getDate() {
         return this.date;
     }
+
+
+    public void setComment(String comment) throws CommentTooLongException {
+        if (comment.length() < MAX_CHARS) {
+            this.comment = comment;
+        } else {
+            throw new CommentTooLongException();
+
+        }
+    }
+
+    public String getComment(){
+        return this.comment;
+    }
+
+
 }

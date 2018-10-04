@@ -55,20 +55,40 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClick(View view) {
         Button clickedButton = (Button) view;
-        switch (clickedButton.getId()) {
-            case R.id.joy_button:
-            Toast.makeText(this, "Joy Emotion Recorded", Toast.LENGTH_SHORT).show();
-            String emotionName = "Joy";
-            EditText bodyText = (EditText) findViewById(R.id.Comment);
-            String comment = bodyText.getText().toString();
-            Emotion joy = new Emotion(emotionName, new Date(System.currentTimeMillis()), comment);
-            emotionListController.addToEmotionList(joy);
-            
-            break;
 
+        EditText bodyText = (EditText) findViewById(R.id.Comment);
+        String comment = bodyText.getText().toString();
+        String emotionName = clickedButton.getText().toString();
+        Emotion emotion = new Emotion();
 
-
+        while (true){
+            try {
+                emotion.setComment(comment);
+                break;
+            } catch (CommentTooLongException e) {
+                Toast.makeText(this, "Comment too long, try again!", Toast.LENGTH_SHORT).show();
+                bodyText.getText().clear();
+                e.printStackTrace();
+                return;
+            }
         }
+        emotion.setEmotionType(emotionName);
+        emotion.setDate(new Date(System.currentTimeMillis()));
+        emotionListController.addToEmotionList(emotion);
+        bodyText.getText().clear();
+        Toast.makeText(this, "Emotion Recorded", Toast.LENGTH_SHORT).show();
+//        Log.d("testing", emotion.getEmotionType());
+//        Log.d("testing", emotion.getComment());
+//        Log.d("testing", String.valueOf(emotionListController.getSize()));
+
+
+
+
+
+
+
+
+
 
     }
 
