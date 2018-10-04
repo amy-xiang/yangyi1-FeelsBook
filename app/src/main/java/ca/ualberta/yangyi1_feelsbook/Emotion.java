@@ -27,6 +27,10 @@ public class Emotion {
         return this.date;
     }
 
+    public String getStringDate(){
+        return this.date.toString();
+    }
+
 
     public void setComment(String comment) throws CommentTooLongException {
         if (comment.length() < MAX_CHARS) {
@@ -42,7 +46,8 @@ public class Emotion {
     }
 
     public String toString(){
-        return getEmotionType();
+        String listView = getEmotionType() + "\n" + getStringDate();
+        return listView;
     }
 
 
