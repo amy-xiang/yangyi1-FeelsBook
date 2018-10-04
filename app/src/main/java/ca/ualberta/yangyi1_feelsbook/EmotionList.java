@@ -1,18 +1,25 @@
 package ca.ualberta.yangyi1_feelsbook;
 
+import android.util.Log;
+
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class EmotionList {
     protected ArrayList<Emotion> emotionList;
     protected ArrayList<Listener> listeners;
+    private static final Map<String, Integer> emotionCounter = new HashMap<String, Integer>();
 
     public EmotionList(){
         emotionList = new ArrayList<Emotion>();
         listeners = new ArrayList<Listener>();
 
-
     }
+
     public Collection<Emotion> getEmotions(){
         return emotionList;
     }
@@ -20,6 +27,19 @@ public class EmotionList {
     public void addEmotion(Emotion emotion){
         emotionList.add(emotion);
         notifyListeners();
+
+        String emotionName = emotion.getEmotionType();
+        if (emotionCounter.get(emotionName) == null){
+            emotionCounter.put(emotionName, 1);
+        } else {
+            int count = emotionCounter.get(emotionName);
+            count++;
+            emotionCounter.put(emotionName, count);
+
+        }
+
+
+
 
     }
 
@@ -42,6 +62,12 @@ public class EmotionList {
         emotionList.remove(emotion);
         notifyListeners();
 
+        String emotionName = emotion.getEmotionType();
+        int count = emotionCounter.get(emotionName);
+        count--;
+        emotionCounter.put(emotionName, count);
+
+
     }
 
     public int size(){
@@ -52,6 +78,9 @@ public class EmotionList {
         return emotionList.contains(emotion);
     }
 
+    public Map getEmotionCounter(){
+        return emotionCounter;
 
+    }
 
 }

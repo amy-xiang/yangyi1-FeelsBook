@@ -1,5 +1,7 @@
 package ca.ualberta.yangyi1_feelsbook;
 
+import java.util.Map;
+
 public class EmotionListController {
     private static EmotionList emotionList = null;
 
@@ -16,6 +18,10 @@ public class EmotionListController {
 
     public int getSize(){
         return getEmotionList().size();
+    }
+
+    public static Map getEmotionsCounter(){
+        return getEmotionList().getEmotionCounter();
     }
 
 }

@@ -33,6 +33,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Date;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class MainActivity extends AppCompatActivity {
     private static final String FILENAME = "file.sav";
@@ -77,20 +79,20 @@ public class MainActivity extends AppCompatActivity {
         emotionListController.addToEmotionList(emotion);
         bodyText.getText().clear();
         Toast.makeText(this, "Emotion Recorded", Toast.LENGTH_SHORT).show();
+        Map emotionMap = EmotionListController.getEmotionsCounter();
 //        Log.d("testing", emotion.getEmotionType());
 //        Log.d("testing", emotion.getComment());
 //        Log.d("testing", String.valueOf(emotionListController.getSize()));
 
-
-
-
-
-
+//        Log.d("testing",emotionName);
+//        Log.d("testing", emotionMap.get(emotionName).toString());
 
 
 
 
     }
+
+
 
 
 }
