@@ -2,6 +2,7 @@ package ca.ualberta.yangyi1_feelsbook;
 import org.junit.Test;
 
 import java.util.Collection;
+import java.util.Date;
 
 import static org.junit.Assert.*;
 import ca.ualberta.yangyi1_feelsbook.EmotionList;
@@ -18,7 +19,8 @@ public class EmotionListTest {
     public void testAddEmotion(){
         EmotionList emotionList = new EmotionList();
         String emotionType = "Joy";
-        Emotion testEmotion = new Emotion(emotionType);
+        String comment = "Hello";
+        Emotion testEmotion = new Emotion(emotionType, new Date(System.currentTimeMillis()), comment);
         emotionList.addEmotion(testEmotion);
         assertTrue("Emotion list size -- testing add emotion", emotionList.size() == 1);
         assertTrue("Test emotion not contained", emotionList.contains(testEmotion));
@@ -28,7 +30,8 @@ public class EmotionListTest {
     public void testDeleteEmotion() {
         EmotionList emotionList = new EmotionList();
         String emotionType = "Joy";
-        Emotion testEmotion = new Emotion(emotionType);
+        String comment = "Hello";
+        Emotion testEmotion = new Emotion(emotionType, new Date(System.currentTimeMillis()), comment);
         emotionList.addEmotion(testEmotion);
         assertTrue("Emotion list size -- too small", emotionList.size() == 1);
         assertTrue("Test emotion not contained", emotionList.contains(testEmotion));

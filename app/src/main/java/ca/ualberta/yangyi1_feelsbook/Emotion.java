@@ -7,8 +7,10 @@ public class Emotion {
     protected Date date;
     protected String comment;
 
-    public Emotion(String EmotionType){
+    public Emotion(String EmotionType, Date date, String comment){
         this.EmotionType = EmotionType;
+        this.date = date;
+        this.comment = comment;
     }
 
     public void setDate(Date date){
