@@ -9,6 +9,8 @@
     <string name="buttontext_fear">Fear</string>
     <string name="apptext_description">EMOTION TRACKER</string>
     <string name="buttontext_history">History</string>
+    <string name="buttontext_frequency">Frequency</string>
     <string name="comment_prompt">Optional Comment</string>
     <string name="title_activity_history">History</string>
+    <string name="title_activity_frequency">FrequencyActivity</string>
 </resources>

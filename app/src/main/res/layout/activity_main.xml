@@ -139,13 +139,14 @@
 
     <Button
         android:id="@+id/history_button"
-        android:layout_width="240dp"
+        android:layout_width="140dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="101dp"
+        android:layout_marginBottom="104dp"
         android:onClick="openHistory"
         android:text="@string/buttontext_history"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.122"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -162,4 +163,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sad_button"
         app:layout_constraintVertical_bias="0.194" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:text="@string/buttontext_frequency"
+        tools:layout_editor_absoluteX="205dp"
+        tools:layout_editor_absoluteY="413dp" />
 </android.support.constraint.ConstraintLayout>

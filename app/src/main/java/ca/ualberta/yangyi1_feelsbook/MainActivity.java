@@ -55,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void openFrequency(View view){
+
+    }
+
     public void onClick(View view) {
         Button clickedButton = (Button) view;
 
@@ -79,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
         emotionListController.addToEmotionList(emotion);
         bodyText.getText().clear();
         Toast.makeText(this, "Emotion Recorded", Toast.LENGTH_SHORT).show();
-        Map emotionMap = EmotionListController.getEmotionsCounter();
+//        Map emotionMap = EmotionListController.getEmotionsCounter();
 //        Log.d("testing", emotion.getEmotionType());
 //        Log.d("testing", emotion.getComment());
 //        Log.d("testing", String.valueOf(emotionListController.getSize()));
@@ -87,10 +91,9 @@ public class MainActivity extends AppCompatActivity {
 //        Log.d("testing",emotionName);
 //        Log.d("testing", emotionMap.get(emotionName).toString());
 
-
-
-
     }
+
+
 
 
 
