@@ -24,11 +24,16 @@ public class HistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
+
+        // Initializes the Emotion List manager that loads the saved data from previous sessions
         EmotionListManager.initManager(this.getApplicationContext());
 
+        // Set up the ListView
         ListView listView = (ListView) findViewById(R.id.EmotionListView);
         Collection<Emotion> emotions = EmotionListController.getEmotionList().getEmotions();
         final ArrayList<Emotion> emotionArrayList = new ArrayList<Emotion>(emotions);
+
+        // Sorts the ListView based on dates
         Collections.sort(emotionArrayList, new Comparator<Emotion>() {
             @Override
             public int compare(Emotion o1, Emotion o2) {
@@ -36,8 +41,11 @@ public class HistoryActivity extends AppCompatActivity {
             }
         });
         final ArrayAdapter<Emotion> emotionArrayAdapter = new ArrayAdapter<Emotion>(this, android.R.layout.simple_list_item_1, emotionArrayList);
+
+        // Displays List View
         listView.setAdapter(emotionArrayAdapter);
 
+        // Adds a listener interface to the emotion list so that everytime the emotion list updates, the ListView updates
         EmotionListController.getEmotionList().addListener(new Listener() {
             @Override
             public void update() {
@@ -48,27 +56,30 @@ public class HistoryActivity extends AppCompatActivity {
             }
         });
 
+        // Open edit and delete pop-up when an item in the ListView is longclicked
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id) {
 
+                // Builds the pop-up
                 AlertDialog.Builder adb = new AlertDialog.Builder(HistoryActivity.this);
                 String alertMessage = emotionArrayList.get(position).toString() + "\n'" + emotionArrayList.get(position).getComment() + "'";
                 adb.setMessage(alertMessage);
                 adb.setCancelable(true);
                 final int FinalPosition = position;
-                Log.d("testing", emotionArrayList.get(FinalPosition).getDate().toString());
-                Log.d("testing", emotionArrayList.get(FinalPosition).getComment().toString());
 
+                // Implements cancel button in pop-up
                 adb.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                     }
                 });
 
+                // implements delete button in pop-up
                 adb.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        // delete the emotion at that position in the list view
                         Emotion emotion = emotionArrayList.get(FinalPosition);
                         EmotionListController.getEmotionList().deleteEmotion(emotion);
                     }
@@ -78,10 +89,13 @@ public class HistoryActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
-
+                        // Passes the emotion at the current position to the edit activity through an intent and opens the edit activity
                         Intent intent = new Intent(HistoryActivity.this, EditEmotionActivity.class);
                         intent.putExtra("editEmotion", emotionArrayList.get(FinalPosition));
                         startActivity(intent);
+
+                        // Deletes the emotion at the current position as passing through an emotion through the intent creates a new emotion
+                        // with the same specifications (basically creates a duplicate)
                         EmotionListController.getEmotionList().deleteEmotion(emotionArrayList.get(FinalPosition));
 
 
@@ -91,7 +105,7 @@ public class HistoryActivity extends AppCompatActivity {
                     }
                 });
 
-
+                // show the pop-up
                 adb.show();
 
                 return false;

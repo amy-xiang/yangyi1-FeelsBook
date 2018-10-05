@@ -39,6 +39,7 @@ import java.util.TimeZone;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class MainActivity extends AppCompatActivity {
+    // Initiates a new Controller that regulates the Emotion List
     public static EmotionListController emotionListController = new EmotionListController();
 
 
@@ -46,17 +47,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Initializes the Emotion List manager that loads the saved data from previous sessions
         EmotionListManager.initManager(this.getApplicationContext());
 
 
     }
-
+    // Sends an intent to open the History activity that lists the previously clicked emotions when the History button is clicked
     public void openHistory(View view) {
         Intent intent = new Intent(MainActivity.this, HistoryActivity.class);
         startActivity(intent);
 
     }
-
+    // Sends an intent to open the Frequency activity that displays how many times an emotion is clicked when the Frequency button is clicked
     public void openFrequency(View view){
         Intent intent = new Intent(MainActivity.this, FrequencyActivity.class);
         startActivity(intent);
@@ -64,15 +67,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Method that adds the emotions
     public void onClick(View view) {
+        // Gets the button that is clicked
         Button clickedButton = (Button) view;
 
+        // Gets the optional comment
         EditText bodyText = (EditText) findViewById(R.id.Comment);
         String comment = bodyText.getText().toString();
         String emotionName = clickedButton.getText().toString();
+
+        // Creates a new emotion
         Emotion emotion = new Emotion();
 
-
+        // Tests to see if the comment is under 100 characters
         try {
             emotion.setComment(comment);
         } catch (CommentTooLongException e) {
@@ -82,18 +90,18 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        // Sets the type of emotion and the current date
         emotion.setEmotionType(emotionName);
         emotion.setDate(new Date(System.currentTimeMillis()));
-        emotionListController.addToEmotionList(emotion);
-        bodyText.getText().clear();
-        Toast.makeText(this, "Emotion Recorded", Toast.LENGTH_SHORT).show();
-//        Map emotionMap = EmotionListController.getEmotionsCounter();
-//        Log.d("testing", emotion.getEmotionType());
-//        Log.d("testing", emotion.getComment());
-//        Log.d("testing", String.valueOf(emotionListController.getSize()));
 
-//        Log.d("testing",emotionName);
-//        Log.d("testing", emotionMap.get(emotionName).toString());
+        // Adds the emotion to the emotion list through the controller
+        emotionListController.addToEmotionList(emotion);
+
+        // Clears the comment box
+        bodyText.getText().clear();
+
+        // Sends a message to confirm emotion being recorded
+        Toast.makeText(this, "Emotion Recorded", Toast.LENGTH_SHORT).show();
 
     }
 
