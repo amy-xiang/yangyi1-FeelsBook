@@ -29,6 +29,12 @@ public class HistoryActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.EmotionListView);
         Collection<Emotion> emotions = EmotionListController.getEmotionList().getEmotions();
         final ArrayList<Emotion> emotionArrayList = new ArrayList<Emotion>(emotions);
+        Collections.sort(emotionArrayList, new Comparator<Emotion>() {
+            @Override
+            public int compare(Emotion o1, Emotion o2) {
+                return o1.getDate().compareTo(o2.getDate());
+            }
+        });
         final ArrayAdapter<Emotion> emotionArrayAdapter = new ArrayAdapter<Emotion>(this, android.R.layout.simple_list_item_1, emotionArrayList);
         listView.setAdapter(emotionArrayAdapter);
 
