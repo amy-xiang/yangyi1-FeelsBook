@@ -56,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openFrequency(View view){
+        Intent intent = new Intent(MainActivity.this, FrequencyActivity.class);
+        startActivity(intent);
+
 
     }
 

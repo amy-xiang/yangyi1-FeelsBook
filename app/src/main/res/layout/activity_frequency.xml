@@ -80,7 +80,7 @@
         android:text="@string/buttontext_love"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/love_Counter"
+        app:layout_constraintEnd_toStartOf="@+id/Love_Counter"
         app:layout_constraintHorizontal_bias="0.84"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -116,17 +116,18 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
         android:background="#929292"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.628"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sad_Counter"
+        app:layout_constraintTop_toBottomOf="@+id/Sad_Counter"
         app:layout_constraintVertical_bias="0.1" />
 
     <TextView
-        android:id="@+id/joy_Counter"
+        android:id="@+id/Joy_Counter"
         android:layout_width="80dp"
         android:layout_height="35dp"
         android:layout_marginBottom="8dp"
@@ -136,6 +137,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/holo_green_light"
+        android:gravity="center_horizontal"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -145,7 +147,7 @@
         app:layout_constraintVertical_bias="0.131" />
 
     <TextView
-        android:id="@+id/love_Counter"
+        android:id="@+id/Love_Counter"
         android:layout_width="80dp"
         android:layout_height="35dp"
         android:layout_marginBottom="8dp"
@@ -154,17 +156,18 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
         android:background="#f67474"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.628"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/joy_Counter"
+        app:layout_constraintTop_toBottomOf="@+id/Joy_Counter"
         app:layout_constraintVertical_bias="0.037" />
 
     <TextView
-        android:id="@+id/surprise_Counter"
+        android:id="@+id/Surprise_Counter"
         android:layout_width="80dp"
         android:layout_height="35dp"
         android:layout_marginBottom="8dp"
@@ -173,17 +176,18 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
         android:background="@android:color/holo_orange_light"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.628"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/love_Counter"
+        app:layout_constraintTop_toBottomOf="@+id/Love_Counter"
         app:layout_constraintVertical_bias="0.043" />
 
     <TextView
-        android:id="@+id/anger_Counter"
+        android:id="@+id/Anger_Counter"
         android:layout_width="80dp"
         android:layout_height="35dp"
         android:layout_marginBottom="8dp"
@@ -192,17 +196,18 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
         android:background="#ff1a1a"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.628"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/surprise_Counter"
+        app:layout_constraintTop_toBottomOf="@+id/Surprise_Counter"
         app:layout_constraintVertical_bias="0.048" />
 
     <TextView
-        android:id="@+id/sad_Counter"
+        android:id="@+id/Sad_Counter"
         android:layout_width="80dp"
         android:layout_height="35dp"
         android:layout_marginBottom="8dp"
@@ -211,13 +216,14 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
         android:background="#4f8da2"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.628"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/anger_Counter"
+        app:layout_constraintTop_toBottomOf="@+id/Anger_Counter"
         app:layout_constraintVertical_bias="0.086" />
 
     <TextView
@@ -234,7 +240,7 @@
         android:text="@string/buttontext_joy"
         android:textAppearance="@style/TextAppearance.AppCompat.Headline"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/joy_Counter"
+        app:layout_constraintEnd_toStartOf="@+id/Joy_Counter"
         app:layout_constraintHorizontal_bias="0.84"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
