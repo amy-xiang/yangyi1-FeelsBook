@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class FrequencyActivity extends AppCompatActivity {
+    //global variables
     TextView Joy;
     TextView Love;
     TextView Surprise;
@@ -24,9 +25,11 @@ public class FrequencyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // saves the changes to the editEmotion attributes and adds it back into the Emotion List
         EmotionListManager.initManager(this.getApplicationContext());
-
         setContentView(R.layout.activity_frequency);
+
+        // gets the TextViews from UI
         Joy = (TextView) findViewById(R.id.Joy_Counter);
         Love = (TextView) findViewById(R.id.Love_Counter);
         Surprise = (TextView) findViewById(R.id.Surprise_Counter);
@@ -34,9 +37,11 @@ public class FrequencyActivity extends AppCompatActivity {
         Sad = (TextView) findViewById(R.id.Sad_Counter);
         Fear = (TextView) findViewById(R.id.fear_Counter);
 
+        // creates array list for the TextViews and strings of the TextViews
         emotions = new ArrayList<TextView>();
         emotionText = new ArrayList<String>();
 
+        // adds items to both array lists
         emotions.add(Joy);
         emotions.add(Love);
         emotions.add(Surprise);
@@ -50,9 +55,10 @@ public class FrequencyActivity extends AppCompatActivity {
         emotionText.add("Sadness");
         emotionText.add("Fear");
 
-
+        // get emotion counter
         emotionMap = EmotionListController.getEmotionsCounter();
 
+        // displays the counter from the emotion counter for each emotion onto the UI
         int i;
         for (i = 0; i < 6; i++){
             if (emotionMap.get(emotionText.get(i)) == null) {

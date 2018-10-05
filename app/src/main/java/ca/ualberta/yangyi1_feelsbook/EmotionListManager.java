@@ -11,11 +11,15 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class EmotionListManager {
+    //global variables
     Context context;
+
+    // initiates the file to load/save emotionlist, the key and the emotionlistmanager
     static final String preffile = "EmotionList";
     static final String elKey = "emotionList";
     static private EmotionListManager emotionListManager = null;
 
+    // initiates the manager
     public static void initManager(Context context){
         if (emotionListManager == null) {
             if (context == null) {
@@ -26,6 +30,7 @@ public class EmotionListManager {
         }
     }
 
+    // gets the manager
     public static EmotionListManager getManager(){
         if (emotionListManager == null) {
             throw new RuntimeException("Did not initialize manager");
@@ -35,10 +40,12 @@ public class EmotionListManager {
 
         return emotionListManager;
     }
-
+    // constructor class
     public EmotionListManager(Context context){
         this.context = context;
     }
+
+    // loads the emotion list from file
     public EmotionList loadEmotionList() throws IOException, ClassNotFoundException {
         SharedPreferences settings = context.getSharedPreferences(preffile, context.MODE_PRIVATE);
         String EmotionListData = settings.getString(elKey, "");
@@ -49,7 +56,7 @@ public class EmotionListManager {
         }
 
     }
-
+    // converts the emotion string list from the file into emotion list
     public static EmotionList EmotionListFromString(String emotionListData) throws IOException, ClassNotFoundException {
         ByteArrayInputStream bi = new ByteArrayInputStream(Base64.decode(emotionListData, Base64.DEFAULT));
         ObjectInputStream ois = new ObjectInputStream(bi);
@@ -57,6 +64,7 @@ public class EmotionListManager {
 
     }
 
+    // converts the emotion list to string for storage in file
     public static String emotionListToString(EmotionList emotionList) throws IOException {
         ByteArrayOutputStream bo = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(bo);
