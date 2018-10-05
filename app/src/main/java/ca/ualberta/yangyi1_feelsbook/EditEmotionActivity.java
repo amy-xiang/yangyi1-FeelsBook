@@ -31,6 +31,8 @@ public class EditEmotionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_emotion);
+        EmotionListManager.initManager(this.getApplicationContext());
+
         editEmotion = (Emotion) getIntent().getSerializableExtra("editEmotion");
         editEmotionName = (TextView) findViewById(R.id.EditEmotionText);
         editComment = (EditText) findViewById(R.id.EditComment);

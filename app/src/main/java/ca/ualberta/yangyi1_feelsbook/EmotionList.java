@@ -1,5 +1,7 @@
 package ca.ualberta.yangyi1_feelsbook;
 
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -7,9 +9,9 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class EmotionList {
-    protected ArrayList<Emotion> emotionList;
-    protected ArrayList<Listener> listeners;
+public class EmotionList implements Serializable {
+    protected ArrayList<Emotion> emotionList = null;
+    protected transient ArrayList<Listener> listeners = null;
     private static final Map<String, Integer> emotionCounter = new HashMap<String, Integer>();
 
     public EmotionList(){
@@ -39,19 +41,29 @@ public class EmotionList {
 
     }
 
+    private ArrayList<Listener> getListeners(){
+        if (listeners == null){
+            listeners = new ArrayList<Listener>();
+        }
+
+        return listeners;
+    }
+
     private void notifyListeners() {
-        for (Listener listener: listeners) {
+        for (Listener listener: getListeners()) {
             listener.update();
         }
     }
 
+
+
     public void addListener(Listener l){
-        listeners.add(l);
+        getListeners().add(l);
 
     }
 
     public void deleteListener(Listener l){
-        listeners.remove(l);
+        getListeners().remove(l);
     }
 
     public void deleteEmotion(Emotion emotion){

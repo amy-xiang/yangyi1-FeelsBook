@@ -24,6 +24,8 @@ public class FrequencyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EmotionListManager.initManager(this.getApplicationContext());
+
         setContentView(R.layout.activity_frequency);
         Joy = (TextView) findViewById(R.id.Joy_Counter);
         Love = (TextView) findViewById(R.id.Love_Counter);

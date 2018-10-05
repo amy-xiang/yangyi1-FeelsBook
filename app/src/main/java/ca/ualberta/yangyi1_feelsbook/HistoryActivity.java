@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class HistoryActivity extends AppCompatActivity {
 
@@ -22,12 +24,16 @@ public class HistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
+        EmotionListManager.initManager(this.getApplicationContext());
 
         ListView listView = (ListView) findViewById(R.id.EmotionListView);
         Collection<Emotion> emotions = EmotionListController.getEmotionList().getEmotions();
         final ArrayList<Emotion> emotionArrayList = new ArrayList<Emotion>(emotions);
         final ArrayAdapter<Emotion> emotionArrayAdapter = new ArrayAdapter<Emotion>(this, android.R.layout.simple_list_item_1, emotionArrayList);
         listView.setAdapter(emotionArrayAdapter);
+
+
+
 
         EmotionListController.getEmotionList().addListener(new Listener() {
             @Override
