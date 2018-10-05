@@ -50,14 +50,14 @@ public class EmotionListManager {
 
     }
 
-    private static EmotionList EmotionListFromString(String emotionListData) throws IOException, ClassNotFoundException {
+    public static EmotionList EmotionListFromString(String emotionListData) throws IOException, ClassNotFoundException {
         ByteArrayInputStream bi = new ByteArrayInputStream(Base64.decode(emotionListData, Base64.DEFAULT));
         ObjectInputStream ois = new ObjectInputStream(bi);
         return (EmotionList) ois.readObject();
 
     }
 
-    private static String emotionListToString(EmotionList emotionList) throws IOException {
+    public static String emotionListToString(EmotionList emotionList) throws IOException {
         ByteArrayOutputStream bo = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(bo);
         oos.writeObject(emotionList);

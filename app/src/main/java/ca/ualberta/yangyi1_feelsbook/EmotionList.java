@@ -71,9 +71,12 @@ public class EmotionList implements Serializable {
         notifyListeners();
 
         String emotionName = emotion.getEmotionType();
-        int count = emotionCounter.get(emotionName);
-        count--;
-        emotionCounter.put(emotionName, count);
+        if (emotionCounter.get(emotionName) != null) {
+            int count = emotionCounter.get(emotionName);
+            count--;
+            emotionCounter.put(emotionName, count);
+        }
+
 
 
     }

@@ -38,9 +38,6 @@ public class HistoryActivity extends AppCompatActivity {
         final ArrayAdapter<Emotion> emotionArrayAdapter = new ArrayAdapter<Emotion>(this, android.R.layout.simple_list_item_1, emotionArrayList);
         listView.setAdapter(emotionArrayAdapter);
 
-
-
-
         EmotionListController.getEmotionList().addListener(new Listener() {
             @Override
             public void update() {
