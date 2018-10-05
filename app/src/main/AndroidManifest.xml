@@ -35,6 +35,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ca.ualberta.yangyi1_feelsbook.MainActivity" />
         </activity>
+        <activity
+            android:name=".EditEmotionActivity"
+            android:label="@string/title_activity_edit_emotion"
+            android:parentActivityName=".HistoryActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.ualberta.yangyi1_feelsbook.HistoryActivity" />
+        </activity>
     </application>
 
 </manifest>

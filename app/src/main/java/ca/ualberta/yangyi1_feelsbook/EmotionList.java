@@ -1,13 +1,11 @@
 package ca.ualberta.yangyi1_feelsbook;
 
-import android.util.Log;
-
-import java.security.Key;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class EmotionList {
     protected ArrayList<Emotion> emotionList;
@@ -37,8 +35,6 @@ public class EmotionList {
             emotionCounter.put(emotionName, count);
 
         }
-
-
 
 
     }
@@ -82,5 +78,6 @@ public class EmotionList {
         return emotionCounter;
 
     }
+
 
 }

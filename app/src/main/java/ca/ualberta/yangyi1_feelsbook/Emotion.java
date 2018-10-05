@@ -2,9 +2,10 @@ package ca.ualberta.yangyi1_feelsbook;
 
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Emotion {
+public class Emotion implements Serializable {
     protected String EmotionType;
     protected Date date;
     protected String comment;

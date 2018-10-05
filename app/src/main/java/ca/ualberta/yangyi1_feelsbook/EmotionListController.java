@@ -24,4 +24,5 @@ public class EmotionListController {
         return getEmotionList().getEmotionCounter();
     }
 
+
 }

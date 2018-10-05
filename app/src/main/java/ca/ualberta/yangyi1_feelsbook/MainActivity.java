@@ -32,12 +32,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
+import java.util.TimeZone;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String FILENAME = "file.sav";
     public static EmotionListController emotionListController = new EmotionListController();
 
 
@@ -70,17 +71,16 @@ public class MainActivity extends AppCompatActivity {
         String emotionName = clickedButton.getText().toString();
         Emotion emotion = new Emotion();
 
-        while (true){
-            try {
-                emotion.setComment(comment);
-                break;
-            } catch (CommentTooLongException e) {
-                Toast.makeText(this, "Comment too long, try again!", Toast.LENGTH_SHORT).show();
-                bodyText.getText().clear();
-                e.printStackTrace();
-                return;
-            }
+
+        try {
+            emotion.setComment(comment);
+        } catch (CommentTooLongException e) {
+            Toast.makeText(this, "Comment too long, try again!", Toast.LENGTH_SHORT).show();
+            bodyText.getText().clear();
+            e.printStackTrace();
+            return;
         }
+
         emotion.setEmotionType(emotionName);
         emotion.setDate(new Date(System.currentTimeMillis()));
         emotionListController.addToEmotionList(emotion);

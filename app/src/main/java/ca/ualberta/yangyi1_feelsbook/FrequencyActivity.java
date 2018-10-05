@@ -60,7 +60,7 @@ public class FrequencyActivity extends AppCompatActivity {
                 emotions.get(i).setText(String.valueOf((int) emotionMap.get(emotionName)));
             }
         }
-        
+
 
     }
 

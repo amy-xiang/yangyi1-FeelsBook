@@ -15,7 +15,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Collection;
 
-class HistoryActivity extends AppCompatActivity {
+public class HistoryActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +64,13 @@ class HistoryActivity extends AppCompatActivity {
                 adb.setNeutralButton("Edit", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-//                        Intent intent = new Intent(HistoryActivity.this, EditEmotionActivity.class);
-//                        startActivity(intent);
+
+
+                        Intent intent = new Intent(HistoryActivity.this, EditEmotionActivity.class);
+                        intent.putExtra("editEmotion", emotionArrayList.get(FinalPosition));
+                        startActivity(intent);
+
+
 
                     }
                 });

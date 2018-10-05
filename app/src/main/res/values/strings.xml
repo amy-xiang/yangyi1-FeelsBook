@@ -12,5 +12,10 @@
     <string name="buttontext_frequency">Frequency</string>
     <string name="comment_prompt">Optional Comment</string>
     <string name="title_activity_history">History</string>
-    <string name="title_activity_frequency">FrequencyActivity</string>
+    <string name="title_activity_frequency">Frequency</string>
+    <string name="title_activity_edit_emotion">EditEmotionActivity</string>
+    <string name="select_date">Select Date</string>
+    <string name="select_time">Select Time</string>
+    <string name="save_changes">Save</string>
+    <string name="cancel_changes">Cancel</string>
 </resources>
