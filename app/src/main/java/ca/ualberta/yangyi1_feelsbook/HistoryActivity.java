@@ -34,6 +34,8 @@ public class HistoryActivity extends AppCompatActivity {
         final ArrayList<Emotion> emotionArrayList = new ArrayList<Emotion>(emotions);
 
         // Sorts the ListView based on dates
+        // taken from: https://stackoverflow.com/questions/5927109/sort-objects-in-arraylist-by-date
+        // Author: Domchi, Date: 4th Oct, 2018
         Collections.sort(emotionArrayList, new Comparator<Emotion>() {
             @Override
             public int compare(Emotion o1, Emotion o2) {

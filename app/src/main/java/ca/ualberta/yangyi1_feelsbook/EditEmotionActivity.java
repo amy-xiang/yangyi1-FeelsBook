@@ -88,6 +88,9 @@ public class EditEmotionActivity extends AppCompatActivity {
             String stringDate = editDate.getText().toString();
             SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy");
 
+            // parsing date format
+            // taken from: https://stackoverflow.com/questions/8573250/android-how-can-i-convert-string-to-date
+            // Author: user370305, buxik - Date: 3rd oct, 2018
             Date newDate;
             try{
                 newDate = sdf.parse(stringDate);
