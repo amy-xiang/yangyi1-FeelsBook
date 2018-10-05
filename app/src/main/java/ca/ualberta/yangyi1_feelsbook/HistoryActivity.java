@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -41,11 +42,14 @@ public class HistoryActivity extends AppCompatActivity {
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id) {
+
                 AlertDialog.Builder adb = new AlertDialog.Builder(HistoryActivity.this);
                 String alertMessage = emotionArrayList.get(position).toString() + "\n'" + emotionArrayList.get(position).getComment() + "'";
                 adb.setMessage(alertMessage);
                 adb.setCancelable(true);
                 final int FinalPosition = position;
+                Log.d("testing", emotionArrayList.get(FinalPosition).getDate().toString());
+                Log.d("testing", emotionArrayList.get(FinalPosition).getComment().toString());
 
                 adb.setPositiveButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
@@ -69,6 +73,9 @@ public class HistoryActivity extends AppCompatActivity {
                         Intent intent = new Intent(HistoryActivity.this, EditEmotionActivity.class);
                         intent.putExtra("editEmotion", emotionArrayList.get(FinalPosition));
                         startActivity(intent);
+                        EmotionListController.getEmotionList().deleteEmotion(emotionArrayList.get(FinalPosition));
+
+
 
 
 

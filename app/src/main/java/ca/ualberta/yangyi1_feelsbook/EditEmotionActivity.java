@@ -50,11 +50,16 @@ public class EditEmotionActivity extends AppCompatActivity {
     public void onClick(View v){
         if (v == cancel){
             Intent intent = new Intent(EditEmotionActivity.this, HistoryActivity.class);
+            EmotionListController.getEmotionList().addEmotion(editEmotion);
             startActivity(intent);
         }
 
         if (v == save) {
+            EmotionListController.getEmotionList().deleteEmotion(editEmotion);
             String newComment = editComment.getText().toString();
+
+            editEmotion.setEmotionType(editEmotionName.getText().toString());
+
 
             try {
                 editEmotion.setComment(newComment);
@@ -80,6 +85,7 @@ public class EditEmotionActivity extends AppCompatActivity {
 
             editEmotion.setDate(newDate);
             Log.d("testing", editEmotion.getDate().toString());
+            EmotionListController.getEmotionList().addEmotion(editEmotion);
 
             Intent intent = new Intent(EditEmotionActivity.this, HistoryActivity.class);
             startActivity(intent);
